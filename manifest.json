@@ -1,0 +1,10 @@
+{
+    "name": "RailCharges",
+    "version_number": "0.0.1",
+    "website_url": "https://github.com/amadare42/RailCharges",
+    "description": "Displays available charges count for Railgunner with Backup Magazines",
+    "dependencies": [
+        "bbepis-BepInExPack-5.4.1903",
+        "RiskofThunder-HookGenPatcher-1.2.3"
+    ]
+}
