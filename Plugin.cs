@@ -71,8 +71,12 @@ namespace RailCharges
                 var crosshairPrefab = (GameObject)configuration.serializedFieldsCollection.serializedFields
                     .First(sf => sf.fieldName == nameof(ActiveScopeHeavy.crosshairOverridePrefab)).fieldValue
                     .objectValue;
-                
-                crosshairPrefab.AddComponent<ScopeTracker>();
+
+                if (!crosshairPrefab.GetComponent<ScopeTracker>())
+                {
+                    crosshairPrefab.AddComponent<ScopeTracker>();
+                }
+
                 PatchPrefab(crosshairPrefab);
                 
                 Logger.LogInfo($"Crosshair prefab patched!");
