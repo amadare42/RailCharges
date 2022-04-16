@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>RailCharges</AssemblyName>
     <Description>Displays available charges count for Railgunner with Backup Magazines</Description>
-    <Version>0.0.1</Version>
+    <Version>0.1.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <BuiltPluginDestPath></BuiltPluginDestPath>
@@ -14,7 +14,8 @@
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
-    <PackageReference Include="UnityEngine.Modules" Version="2019.4.26" IncludeAssets="compile" />
+    <PackageReference Include="UnityEngine.Modules" Version="2019.4.26" />
+    <PackageReference Include="RiskOfRain2.GameLibs" Version="1.2.1-r.1" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
@@ -22,26 +23,22 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Reference Include="com.unity.multiplayer-hlapi.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>libs\com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
     <Reference Include="MMHOOK_RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>libs\MMHOOK_RoR2.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>libs\RoR2-nstrip.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>libs\Unity.TextMeshPro.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>libs\UnityEngine.UI.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <Target Name="CopyCustomContent" AfterTargets="Build" Condition="$(BuiltPluginDestPath) != ''">
