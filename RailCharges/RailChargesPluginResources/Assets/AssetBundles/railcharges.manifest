@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 134139453
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 05ea017d32336f17adcac75136ba8453
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/icons/reticle.png
+Dependencies: []
