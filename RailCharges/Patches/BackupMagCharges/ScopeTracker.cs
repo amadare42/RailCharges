@@ -2,7 +2,7 @@ using RoR2;
 using RoR2.UI;
 using UnityEngine;
 
-namespace RailCharges;
+namespace RailCharges.Patches.BackupMagCharges;
 
 public class ScopeTracker : MonoBehaviour
 {
@@ -11,22 +11,32 @@ public class ScopeTracker : MonoBehaviour
 
     private void Start()
     {
-        LastTextMesh = gameObject.transform.Find("Available/charges")?.GetComponent<HGTextMeshProUGUI>();
+        LastTextMesh = this.gameObject.transform.Find("Available/charges")?.GetComponent<HGTextMeshProUGUI>();
         this.textMesh = LastTextMesh;
         if (!LastTextMesh)
         {
-            Plugin.Log.LogError("Failed to find text mesh");
+            RailChargesPlugin.Log.LogError("Failed to find text mesh");
             return;
         }
         
-        if (!Plugin.LocalPlayerBody) 
+        if (!CurrentPlayerTracker.CurrentPlayerBody)
         {
-            Plugin.Log.LogError("Player body not found");
+            RailChargesPlugin.Log.LogError("Player body not found");
             return;
         }
 
-        UpdateCharges(Plugin.LocalPlayerBody.skillLocator.secondary);
+        UpdateCharges(CurrentPlayerTracker.CurrentPlayerBody.skillLocator.secondary);
         SetReadyStatus(true);
+    }
+    
+    private void Update()
+    {
+        if (!LastTextMesh || !CurrentPlayerTracker.CurrentPlayerBody)
+        {
+            return;
+        }
+        
+        SetReadyStatus(CurrentPlayerTracker.CurrentPlayerBody.skillLocator.primary.CanExecute());
     }
 
     private void OnDestroy()
@@ -41,7 +51,7 @@ public class ScopeTracker : MonoBehaviour
     {
         if (!LastTextMesh)
         {
-            Plugin.Log.LogInfo($"{nameof(UpdateCharges)}: no {nameof(LastTextMesh)}");
+            RailChargesPlugin.Log.LogInfo($"{nameof(UpdateCharges)}: no {nameof(LastTextMesh)}");
             return;
         }
 
@@ -61,15 +71,5 @@ public class ScopeTracker : MonoBehaviour
         }
 
         LastTextMesh.alpha = isReady ? 0.5f : .1f;
-    }
-
-    private void Update()
-    {
-        if (!LastTextMesh)
-        {
-            return;
-        }
-        
-        SetReadyStatus(Plugin.LocalPlayerBody.skillLocator.primary.CanExecute());
     }
 }
