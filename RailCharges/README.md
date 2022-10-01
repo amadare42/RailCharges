@@ -22,7 +22,7 @@ By changing `Crosshair` value in configuration, default non-scope crosshair can 
 
 You can also disable decorative outer rectangle (Yellow) with `Remove Outer Rectangle` option and disable reload boost indicator (square with lightning after successful reload) with `Disable Boosted Indicator` option. So it is possible to remove all aiming HUD if you want.
 
-![crosshair variants](.\Readme\crosshairs.jpg)
+![crosshair variants](https://raw.githubusercontent.com/amadare42/RailCharges/master/RailCharges/Readme/crosshairs.jpg)
 
 
 ### FOV and Wind-up time confiration
@@ -35,7 +35,7 @@ You can change animation duration for entering scope mode by using `WindUp durat
 
 Because when Railgunner scope, camera will only translate to character position, but not rotate to character view, aiming point will be slightly lower than before entering scope (see picture below). This will be noticeable more for short range. This mod can compensate for that by finding what point is in screen center before entering the scope and adds extra camera rotation during entering scope animation, making you aim same point. 
 
-![angular](.\Readme\angular_compensation.jpg)
+![angular](https://raw.githubusercontent.com/amadare42/RailCharges/master/RailCharges/Readme/angular_compensation.jpg)
 
 
 ## Version History
