@@ -1,0 +1,5 @@
+{
+  "$schema": "./build.schema.json",
+  "Solution": "RailCharges.sln",
+  "ScriptsPath": "C:/Users/amada/AppData/Roaming/Thunderstore Mod Manager/DataFolder/RiskOfRain2/profiles/Debug/BepInEx/scripts"
+}
