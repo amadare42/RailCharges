@@ -23,13 +23,6 @@
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="RiskOfOptions">
-      <HintPath>libs\RiskOfOptions.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
   
   <ItemGroup>
     <None Update="icon.png">
